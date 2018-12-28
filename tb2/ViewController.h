@@ -8,8 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ViewController : NSViewController
+@interface ViewController : NSViewController<NSTableViewDelegate,NSTableViewDataSource>
+@property (weak) IBOutlet NSTableView *tableView;
+@property (weak) IBOutlet NSTextField *label;
 
-
+@property NSMutableArray* inData;
 @end
 

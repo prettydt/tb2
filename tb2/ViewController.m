@@ -12,11 +12,66 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.inData = [[NSMutableArray alloc]init];
+    NSMutableDictionary *dic = [NSMutableDictionary new];
+    
+    [dic setObject:@"0930" forKey:@"time"];
+    [dic setObject:@"603999"forKey:@"symbol"];
+    [dic setObject:@"读者传媒"forKey:@"name"];
+    [dic setObject:@"5.04"forKey:@"sale"];
+    [dic setObject:@"5.04"forKey:@"buy"];
+    [dic setObject:@"12700"forKey:@"dealCount"];
+    [self.inData addObject:dic];
+    NSMutableDictionary *dic2 = [NSMutableDictionary new];
+    [dic2 setObject:@"0931" forKey:@"time"];
+    [dic2 setObject:@"603999"forKey:@"symbol"];
+    [dic2 setObject:@"读者传媒"forKey:@"name"];
+    [dic2 setObject:@"5.02"forKey:@"sale"];
+    [dic2 setObject:@"5.03"forKey:@"buy"];
+    [dic2 setObject:@"268300"forKey:@"dealCount"];
+    [self.inData addObject:dic2];
+    NSLog(@"%@",self.inData);
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     // Do any additional setup after loading the view.
 }
 
+-(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+{
+    return self.inData.count;
+}
+-(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+    NSString *identifier = [tableColumn identifier];
+    
+    NSDictionary *dict = [self.inData objectAtIndex:row];
+    NSString *value = [dict objectForKey:identifier];
+    
+    
+    if (value) {
+        NSTableCellView *column = [tableView makeViewWithIdentifier:identifier owner:self];
+        column.textField.stringValue = value;
+        return column;
+    }
+    return nil;
+    
+}
+-(void)tableViewSelectionDidChange:(NSNotification *)notification
+{
+    NSTableView *tableView = notification.object;
 
+    NSLog(@"---selection row %ld", tableView.selectedRow);
+
+    NSLog(@"---selection row %@", self.inData [tableView.selectedRow][@"time"]);
+    self.label.stringValue =self.inData [tableView.selectedRow][@"time"];
+    
+}
+
+-(BOOL)selectionShouldChangeInTableView:(NSTableView *)tableView
+{
+    NSLog(@"change");
+    return YES;
+}
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
 
