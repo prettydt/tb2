@@ -11,8 +11,8 @@
 @implementation ViewController
 - (IBAction)searchAction:(id)sender {
     NSLog(@"%@",self.searchField.stringValue);
-//    self.inData = [self searchTest:self.searchField.stringValue InArray:self.inData];
-  //  [self.tableView reloadData];
+    self.inData = [self searchTest:self.searchField.stringValue InArray:self.inData];
+    [self.tableView reloadData];
 }
 - (NSMutableArray *)searchTest:(NSString *)searchText InArray:(NSArray *)array {
     
