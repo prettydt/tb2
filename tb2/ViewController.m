@@ -12,6 +12,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSURL *url = [NSURL URLWithString:@"https://hq.sinajs.cn/list=sh600125"];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    NSString *retStr = [[NSString alloc] initWithData:data encoding:enc];
+    NSLog(@"retStr%@",retStr);
+    NSArray  *array = [retStr componentsSeparatedByString:@","];//分隔符逗号
+        NSLog(@"retStr%@",array[2]);
+//
+//    NSString *urlString = @"https://hq.sinajs.cn/list=sh600125";
+//    NSURL *url = [NSURL URLWithString:urlString];
+//
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+//        //block 参数的解释
+//        //response 响应头的信息
+//        //data 我们所需要的真是的数据
+//        //connectionError 链接服务器的错误信息
+//        NSLog(@"请求到数据了");
+//        NSLog(@"response%@",response);
+//        NSLog(@"data%@",data);
+//    }];
+    
     self.inData = [[NSMutableArray alloc]init];
     NSMutableDictionary *dic = [NSMutableDictionary new];
     
