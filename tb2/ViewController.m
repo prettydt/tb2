@@ -11,8 +11,8 @@
 @implementation ViewController
 - (IBAction)searchAction:(id)sender {
     NSLog(@"%@",self.searchField.stringValue);
-    self.inData = [self searchTest:self.searchField.stringValue InArray:self.inData];
-    [self.tableView reloadData];
+//    self.inData = [self searchTest:self.searchField.stringValue InArray:self.inData];
+  //  [self.tableView reloadData];
 }
 - (NSMutableArray *)searchTest:(NSString *)searchText InArray:(NSArray *)array {
     
@@ -79,6 +79,18 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     // Do any additional setup after loading the view.
+    
+    //table view 排序
+//    NSSortDescriptor *time = [NSSortDescriptor sortDescriptorWithKey:self.inData ascending:<#(BOOL)#>]
+//    [self.tableView setSortDescriptors:[NSArray arrayWithObjects:
+//
+//                                      [NSSortDescriptor sortDescriptorWithKey:@"symbol" ascending:YES selector:@selector(compare:)],
+//
+//                                      [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:YES selector:@selector(compare:)],
+//
+//                                      nil]];
+//
+
 }
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
@@ -96,20 +108,34 @@
     if (value) {
         NSTableCellView *column = [tableView makeViewWithIdentifier:identifier owner:self];
         column.textField.stringValue = value;
+        NSSortDescriptor *lastNameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:identifier ascending:YES selector:@selector(compare:)];
+        
+        [tableColumn setSortDescriptorPrototype:lastNameSortDescriptor];
         return column;
     }
     return nil;
     
 }
+- (void)tableView:(NSTableView *)tableView sortDescriptorsDidChange:(NSArray *)oldDescriptors
+
+{
+    
+    [self.inData sortUsingDescriptors: [tableView sortDescriptors]];
+    
+    [tableView reloadData];
+    
+}
+
+
 -(void)tableViewSelectionDidChange:(NSNotification *)notification
 {
-    NSTableView *tableView = notification.object;
-
-    NSLog(@"---selection row %ld", tableView.selectedRow);
-
-    NSLog(@"---selection row %@", self.inData [tableView.selectedRow][@"time"]);
-    self.label.stringValue =self.inData [tableView.selectedRow][@"time"];
-    
+//    NSTableView *tableView = notification.object;
+//
+//    NSLog(@"---selection row %ld", tableView.selectedRow);
+//
+//    NSLog(@"---selection row %@", self.inData [tableView.selectedRow][@"time"]);
+//    self.label.stringValue =self.inData [tableView.selectedRow][@"time"];
+//    
 }
 
 -(BOOL)selectionShouldChangeInTableView:(NSTableView *)tableView
