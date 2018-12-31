@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @interface ViewController : NSViewController<NSTableViewDelegate,NSTableViewDataSource>
+@property (weak) IBOutlet NSSearchField *searchField;
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSTextField *label;
 

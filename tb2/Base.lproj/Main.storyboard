@@ -710,7 +710,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sy-TB-dg3">
-                                <rect key="frame" x="20" y="115" width="240" height="135"/>
+                                <rect key="frame" x="20" y="94" width="240" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="xLF-CV-Clb">
                                     <rect key="frame" x="1" y="0.0" width="238" height="134"/>
@@ -816,10 +816,23 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <searchField wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ud5-Ca-ZLp">
+                                <rect key="frame" x="20" y="248" width="96" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="oFw-4v-fN5">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </searchFieldCell>
+                                <connections>
+                                    <action selector="searchAction:" target="XfG-lQ-9wD" id="dua-GL-cpE"/>
+                                </connections>
+                            </searchField>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="label" destination="gBt-PH-mmE" id="HXI-WG-MOu"/>
+                        <outlet property="searchField" destination="ud5-Ca-ZLp" id="O9S-1H-ExO"/>
                         <outlet property="tableView" destination="N3g-6p-ro6" id="dL9-Ec-5fw"/>
                     </connections>
                 </viewController>

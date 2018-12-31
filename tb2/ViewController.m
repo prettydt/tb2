@@ -9,6 +9,27 @@
 #import "ViewController.h"
 
 @implementation ViewController
+- (IBAction)searchAction:(id)sender {
+    NSLog(@"%@",self.searchField.stringValue);
+    self.inData = [self searchTest:self.searchField.stringValue InArray:self.inData];
+    [self.tableView reloadData];
+}
+- (NSMutableArray *)searchTest:(NSString *)searchText InArray:(NSArray *)array {
+    
+    NSMutableArray *tmpArray = [NSMutableArray array];
+            NSLog(@"array==%@",[array[0] objectForKey:@"symbol"]);
+    for (int i=0; i<array.count; i++) {
+        
+   //     NSString *larg1 = [searchText uppercaseString];
+    //    NSString *larg2 = [array[i][1] uppercaseString];
+        if ([[array[i] objectForKey:@"symbol"] containsString:searchText])
+        {
+            [tmpArray addObject: array[i]];
+        }
+    }
+    
+    return tmpArray;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -19,6 +40,8 @@
     NSLog(@"retStr%@",retStr);
     NSArray  *array = [retStr componentsSeparatedByString:@","];//分隔符逗号
         NSLog(@"retStr%@",array[2]);
+    NSArray *testArr = [array sortedArrayUsingSelector:@selector(compare:)];
+            NSLog(@"testArr%@",testArr);
 //
 //    NSString *urlString = @"https://hq.sinajs.cn/list=sh600125";
 //    NSURL *url = [NSURL URLWithString:urlString];
@@ -46,7 +69,7 @@
     [self.inData addObject:dic];
     NSMutableDictionary *dic2 = [NSMutableDictionary new];
     [dic2 setObject:@"0931" forKey:@"time"];
-    [dic2 setObject:@"603999"forKey:@"symbol"];
+    [dic2 setObject:@"603123"forKey:@"symbol"];
     [dic2 setObject:@"读者传媒"forKey:@"name"];
     [dic2 setObject:@"5.02"forKey:@"sale"];
     [dic2 setObject:@"5.03"forKey:@"buy"];
