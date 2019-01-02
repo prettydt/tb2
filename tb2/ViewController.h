@@ -7,12 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "FMDB.h"
 @interface ViewController : NSViewController<NSTableViewDelegate,NSTableViewDataSource>
+@property (weak) IBOutlet NSButton *start;
 @property (weak) IBOutlet NSSearchField *searchField;
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSTextField *label;
-
+@property float  sliderValue;
+@property NSTimer *timer;
 @property NSMutableArray* inData;
+@property BOOL buttonInvalid;
 @end
 

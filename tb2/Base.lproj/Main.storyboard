@@ -795,7 +795,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="KR2-PK-STc">
-                                    <rect key="frame" x="1" y="119" width="223" height="15"/>
+                                    <rect key="frame" x="1" y="8" width="0.0" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="83u-ie-7eV">
@@ -828,11 +828,54 @@
                                     <action selector="searchAction:" target="XfG-lQ-9wD" id="dua-GL-cpE"/>
                                 </connections>
                             </searchField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r3t-y5-6eC">
+                                <rect key="frame" x="303" y="73" width="103" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="insertData" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Chz-iI-d6s">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="insertData:" target="XfG-lQ-9wD" id="1hk-Mg-cPt"/>
+                                </connections>
+                            </button>
+                            <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EL0-U7-Grx">
+                                <rect key="frame" x="47" y="53" width="141" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <sliderCell key="cell" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="7UI-sm-hX1"/>
+                                <connections>
+                                    <binding destination="XfG-lQ-9wD" name="value" keyPath="self.sliderValue" id="wtP-kn-yxd"/>
+                                </connections>
+                            </slider>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c0u-43-scq">
+                                <rect key="frame" x="20" y="7" width="69" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iAz-Ll-Fii">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="start:" target="XfG-lQ-9wD" id="Bgs-aV-E0y"/>
+                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="self.buttonInvalid" id="FZG-W0-ukH"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sit-dA-3tC">
+                                <rect key="frame" x="112" y="7" width="67" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="stop" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="l5o-U1-AWw">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="stop:" target="XfG-lQ-9wD" id="fdy-Lw-am5"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="label" destination="gBt-PH-mmE" id="HXI-WG-MOu"/>
                         <outlet property="searchField" destination="ud5-Ca-ZLp" id="O9S-1H-ExO"/>
+                        <outlet property="start" destination="c0u-43-scq" id="2T9-J5-KN2"/>
                         <outlet property="tableView" destination="N3g-6p-ro6" id="dL9-Ec-5fw"/>
                     </connections>
                 </viewController>
