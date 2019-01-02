@@ -856,7 +856,6 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="start:" target="XfG-lQ-9wD" id="Bgs-aV-E0y"/>
-                                    <binding destination="XfG-lQ-9wD" name="enabled" keyPath="self.buttonInvalid" id="FZG-W0-ukH"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sit-dA-3tC">

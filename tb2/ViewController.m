@@ -235,6 +235,8 @@
 }
 - (IBAction)stop:(id)sender {
     [self.timer invalidate];
+    self.start.enabled = true;
+    
 }
 - (IBAction)start:(id)sender {
     self.timer =     [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer *_Nonnull timer) {
@@ -242,7 +244,8 @@
         self.sliderValue++;
     }];
     [self.timer fire];
-    self.buttonInvalid = true;
+    self.start.enabled = false;
+  //  self.buttonInvalid = true;
 }
 - (IBAction)insertData:(id)sender {
     NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
