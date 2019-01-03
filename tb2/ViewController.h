@@ -11,6 +11,7 @@
 @interface ViewController : NSViewController<NSTableViewDelegate,NSTableViewDataSource>
 @property (weak) IBOutlet NSButton *start;
 @property (weak) IBOutlet NSSearchField *searchField;
+@property NSString* searchString;
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSTextField *label;
 @property float  sliderValue;

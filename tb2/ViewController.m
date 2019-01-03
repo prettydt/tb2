@@ -30,9 +30,77 @@
     
     return tmpArray;
 }
+- (NSString *)transformToPinyin:(NSString *)aString
+{
+    //转成了可变字符串
+    NSMutableString *str = [NSMutableString stringWithString:aString];
+    CFStringTransform((CFMutableStringRef)str,NULL, kCFStringTransformMandarinLatin,NO);
+    //再转换为不带声调的拼音
+    CFStringTransform((CFMutableStringRef)str,NULL, kCFStringTransformStripDiacritics,NO);
+    NSArray *pinyinArray = [str componentsSeparatedByString:@" "];
+    NSMutableString *allString = [NSMutableString new];
+    
+    int count = 0;
+    
+    for (int  i = 0; i < pinyinArray.count; i++)
+    {
+        
+        for(int i = 0; i < pinyinArray.count;i++)
+        {
+            if (i == count) {
+                [allString appendString:@"#"];//区分第几个字母
+            }
+            [allString appendFormat:@"%@",pinyinArray[i]];
+            
+        }
+        [allString appendString:@","];
+        count ++;
+        
+    }
+    
+    NSMutableString *initialStr = [NSMutableString new];//拼音首字母
+    
+    for (NSString *s in pinyinArray)
+    {
+        if (s.length > 0)
+        {
+            
+            [initialStr appendString:  [s substringToIndex:1]];
+        }
+    }
+    
+    [allString appendFormat:@"#%@",initialStr];
+    [allString appendFormat:@",#%@",aString];
+    
+    return allString;
+}
 
+
+-(void)testInclude:(NSString*) testString{
+    NSInteger alength = [testString length];
+    for (int i = 0; i<alength; i++) {
+        char commitChar = [testString characterAtIndex:i];
+        NSString *temp = [testString substringWithRange:NSMakeRange(i,1)];
+        const char *u8Temp = [temp UTF8String];
+        if (3==strlen(u8Temp)){ NSLog(@"字符串中含有中文");
+            
+        }else if((commitChar>64)&&(commitChar<91)){
+            NSLog(@"字符串中含有大写英文字母"); }
+        else if((commitChar>96)&&(commitChar<123)){
+            NSLog(@"字符串中含有小写英文字母"); }
+        else if((commitChar>47)&&(commitChar<58)){
+            NSLog(@"字符串中含有数字"); }else{
+            NSLog(@"字符串中含有非法字符");
+            }
+    }
+   
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"transformer==:%@",[self transformToPinyin:@"银行"]);
+    NSString * test = @"123";
+    NSLog(@"test.intValue%ld",test.integerValue);
+    self.searchString = self.searchField.stringValue;
         self.buttonInvalid = false;
     self.sliderValue = 0;
     self.timer =     [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer *_Nonnull timer) {
@@ -147,7 +215,7 @@
     
     [dic setObject:@"0930" forKey:@"time"];
     [dic setObject:@"603999"forKey:@"symbol"];
-    [dic setObject:@"读者传媒"forKey:@"name"];
+    [dic setObject:@"中国银行"forKey:@"name"];
     [dic setObject:@"5.04"forKey:@"sale"];
     [dic setObject:@"5.04"forKey:@"buy"];
     [dic setObject:@"12700"forKey:@"dealCount"];
