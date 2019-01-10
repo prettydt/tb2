@@ -95,8 +95,38 @@
     }
    
 }
+-(NSString*) testfor:(person*)person
+{
+    NSLog(@"AAA%@",person.name);
+    return person.phone;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+  //  father* theFather = [father new];
+    NSDictionary *dictionary =@{@"name":@"1111",@"iphone":@"3333"};
+    
+    [dictionary enumerateKeysAndObjectsUsingBlock:^ (id key, id obj, BOOL *stop) {
+        
+        NSLog(@"key: %@, value: %@", key, obj);
+        
+    }];
+    
+
+    childen* theChildren = [[childen alloc]init];
+    theChildren.var = @"ff";
+    [theChildren fatherMethod:@"33" ];
+    [theChildren sayHello:@"hello"];
+    person* myperson = [person new];
+    myperson.name = @"name";
+    myperson.phone = @"phone";
+    NSMutableArray<person*>  *myarr = [NSMutableArray new];
+    [myarr addObject:myperson];
+    for (person* per in myarr) {
+        NSLog(@"per.index%lu",[myarr indexOfObject:per]);
+    }
+    NSLog(@"subrange%@",[myarr subarrayWithRange:NSMakeRange(0, 1)][0].name);
+    
+    NSLog(@"BBB%@",[self testfor:myperson]);
     NSLog(@"transformer==:%@",[self transformToPinyin:@"银行"]);
     NSString * test = @"123";
     NSLog(@"test.intValue%ld",test.integerValue);
@@ -145,6 +175,10 @@
     [db close];
     
     [db open];
+    NSNumber *number = @11;
+   // NSLog(@"number.stringValue%@",number.value);
+    NSString * str1 = number.stringValue;
+//SQLiteExpertPers
     FMResultSet *resultSet = [db executeQuery:@"select * from 't_student' where ID = ? and name =?" withArgumentsInArray:@[@113,@"x4"]];
     //4
     //    FMResultSet *result = [db executeQuery:@"select * from 't_sutdent' where ID = ?" withParameterDictionary:@{@"ID":@114}];

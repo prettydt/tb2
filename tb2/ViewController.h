@@ -8,6 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 #import "FMDB.h"
+#import "person.h"
+#import "father.h"
+#import "childen.h"
 @interface ViewController : NSViewController<NSTableViewDelegate,NSTableViewDataSource>
 @property (weak) IBOutlet NSButton *start;
 @property (weak) IBOutlet NSSearchField *searchField;

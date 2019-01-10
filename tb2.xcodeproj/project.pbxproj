@@ -15,6 +15,9 @@
 		611A2EAD21D5C01800886049 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 611A2EAC21D5C01800886049 /* main.m */; };
 		611A2EB821D5C01800886049 /* tb2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 611A2EB721D5C01800886049 /* tb2Tests.m */; };
 		611A2EC321D5C01800886049 /* tb2UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 611A2EC221D5C01800886049 /* tb2UITests.m */; };
+		611A2ED521DEEE1F00886049 /* person.m in Sources */ = {isa = PBXBuildFile; fileRef = 611A2ED421DEEE1F00886049 /* person.m */; };
+		611A2ED821DF4E6C00886049 /* father.m in Sources */ = {isa = PBXBuildFile; fileRef = 611A2ED721DF4E6C00886049 /* father.m */; };
+		611A2EDB21DF4EFD00886049 /* childen.m in Sources */ = {isa = PBXBuildFile; fileRef = 611A2EDA21DF4EFD00886049 /* childen.m */; };
 		8C4EE8A0597FF03ECAA71541 /* libPods-tb2UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D57F00C86A601A94156DB248 /* libPods-tb2UITests.a */; };
 		970B03422DED643907B9DDC9 /* libPods-tb2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F76F9FCF8EAF25642DD5ADE8 /* libPods-tb2.a */; };
 /* End PBXBuildFile section */
@@ -58,6 +61,12 @@
 		611A2EC221D5C01800886049 /* tb2UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tb2UITests.m; sourceTree = "<group>"; };
 		611A2EC421D5C01800886049 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		611A2ED221DC60FC00886049 /* identifier.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = identifier.sqlite; path = ../../../Desktop/identifier.sqlite; sourceTree = "<group>"; };
+		611A2ED321DEEE1F00886049 /* person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = person.h; sourceTree = "<group>"; };
+		611A2ED421DEEE1F00886049 /* person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = person.m; sourceTree = "<group>"; };
+		611A2ED621DF4E6C00886049 /* father.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = father.h; sourceTree = "<group>"; };
+		611A2ED721DF4E6C00886049 /* father.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = father.m; sourceTree = "<group>"; };
+		611A2ED921DF4EFD00886049 /* childen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = childen.h; sourceTree = "<group>"; };
+		611A2EDA21DF4EFD00886049 /* childen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = childen.m; sourceTree = "<group>"; };
 		BC90618BA5C47D7CCFEB425B /* Pods-tb2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tb2.release.xcconfig"; path = "Target Support Files/Pods-tb2/Pods-tb2.release.xcconfig"; sourceTree = "<group>"; };
 		D39E82369D0147A429FC9764 /* Pods-tb2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tb2Tests.debug.xcconfig"; path = "Target Support Files/Pods-tb2Tests/Pods-tb2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		D57F00C86A601A94156DB248 /* libPods-tb2UITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tb2UITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +142,12 @@
 				611A2ED221DC60FC00886049 /* identifier.sqlite */,
 				611A2EA321D5C01700886049 /* ViewController.h */,
 				611A2EA421D5C01700886049 /* ViewController.m */,
+				611A2ED621DF4E6C00886049 /* father.h */,
+				611A2ED921DF4EFD00886049 /* childen.h */,
+				611A2EDA21DF4EFD00886049 /* childen.m */,
+				611A2ED721DF4E6C00886049 /* father.m */,
+				611A2ED321DEEE1F00886049 /* person.h */,
+				611A2ED421DEEE1F00886049 /* person.m */,
 				611A2EA621D5C01800886049 /* Assets.xcassets */,
 				611A2EA821D5C01800886049 /* Main.storyboard */,
 				611A2EAB21D5C01800886049 /* Info.plist */,
@@ -369,6 +384,9 @@
 			files = (
 				611A2EA521D5C01700886049 /* ViewController.m in Sources */,
 				611A2EAD21D5C01800886049 /* main.m in Sources */,
+				611A2ED521DEEE1F00886049 /* person.m in Sources */,
+				611A2EDB21DF4EFD00886049 /* childen.m in Sources */,
+				611A2ED821DF4E6C00886049 /* father.m in Sources */,
 				611A2EA221D5C01700886049 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
